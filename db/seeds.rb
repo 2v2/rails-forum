@@ -19,10 +19,10 @@ Topic.create(
 
 entry1 = Entry.create(
 	title: "rails forum for GA",
-	author: david,
+	author_id: david.id,
 	content: "Need a competent developer for pair programming who will not hold me back - MUST LOVE CATS")
 
 Comment.create(
-	author: alex,
-	entry: entry1,
+	author_id: alex.id,
+	entry_id: entry1.id,
 	content: "FUCK YOUR CATS")
