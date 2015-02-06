@@ -1,0 +1,8 @@
+
+<% @topics.each do |topic| %>
+
+<%= link_to topic.title, topic_path(topic) %>
+<%= topic.description %>
+
+<% end %>
+

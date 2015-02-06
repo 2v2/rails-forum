@@ -13,16 +13,17 @@ david = User.create(
 	screen_name: "dead1020",
 	password: "pw123")
 
-Topic.create(
+topic1 = Topic.create(
 	title: "Projects",
 	description: "Discussion board for project ideas and recruitment")
 
 entry1 = Entry.create(
 	title: "rails forum for GA",
-	author_id: david.id,
+	user_id: david.id,
+	topic_id: topic1.id,
 	content: "Need a competent developer for pair programming who will not hold me back - MUST LOVE CATS")
 
 Comment.create(
-	author_id: alex.id,
+	user_id: alex.id,
 	entry_id: entry1.id,
 	content: "FUCK YOUR CATS")

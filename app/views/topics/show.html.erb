@@ -1,0 +1,14 @@
+
+<h1> <%= @topic.title %> </h1>
+<h4> <%= @topic.description %>
+
+<% @topic.entries.each do |entry| %>
+	
+	<h3> <%= entry.title %> </h3>
+	<br>
+	<p> by <%= entry.user.screen_name %> </p>
+	<br>
+
+<% end %>
+
+<%= link_to 'back', topics_path %>
