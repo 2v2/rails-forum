@@ -1,0 +1,46 @@
+
+<div id="main-container" class="container">
+      <div class="row">
+
+      <div class="col-xs-8">
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to 'Post feed', topics_path %></li>
+  <li class="active"><%= link_to 'Create post', new_topic_entry_path %></li>
+</ul>
+
+
+<%= form_for topic_entries_path(@entry) do |f| %>
+
+
+<div class="field form-group">
+<%= f.label :title, class: 'col-sm-2 control-label'  %>
+<div class="col-sm-8">
+<%= f.text_field :title, class: 'form-control'  %>
+</div>
+</div>
+<div class="field form-group">
+<%= f.label :user_id, class: 'col-sm-2 control-label' %>
+<div class="col-sm-8">
+<%= f.text_field :user_id, class: 'form-control' %>
+</div>
+</div>
+<div class="field form-group">
+<%= f.label :content, class: 'col-sm-2 control-label'  %>
+ <div class="col-sm-8">
+<%= f.text_area :content, class: 'form-control' %>
+<br /><br />
+<div class="actions form-group">
+<div class="col-sm-10">
+<%= f.submit 'Submit', class: 'btn btn-primary'  %>
+
+</div>
+</div>
+<% end %>
+
+
+<br>
+
+<%= link_to 'Cancel', topics_path, class: 'btn btn-danger'  %>
+</div>
+</div>
+</div>  
