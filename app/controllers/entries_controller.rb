@@ -8,8 +8,12 @@ class EntriesController < ApplicationController
   end
 
   def new
-    @topic = Topic.find_by(id: params[:topic_id])
-    @new_entry = @topic.entries.build
+    if session[:user_id] 
+      @topic = Topic.find_by(id: params[:topic_id])
+      @new_entry = @topic.entries.build
+    else
+      redirect_to session[:page_id]
+    end
   end
 
   def create
@@ -19,6 +23,11 @@ class EntriesController < ApplicationController
 
   def edit
     @entry = Entry.find_by(id: params[:id])
+    if session[:user_id] == @entry.user_id
+    else
+      redirect_to session[:page_id]
+    end
+    
   end
 
   def update
