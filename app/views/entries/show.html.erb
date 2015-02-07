@@ -1,5 +1,5 @@
 
-
+<%= render 'shared/loginout' %>
 
 <h1> <%= @entry.title %> </h1>
 <h4> <%= @entry.user.screen_name %></h4>
@@ -7,16 +7,19 @@
 	<p><%= @entry.content %> </p>
 
 <% @entry.comments.each do |comment| %>
-	<p> by  <%=comment.user.screen_name %> </p>
+	<p> by  <%= comment.user.screen_name %> </p>
 	<p> <%= comment.content %> </p>
-	<% if @user && (@user.id == comment.user_id || @user.id == @entry.user_id) %>
+	<% if @user && @user.id == comment.user_id %>
 	<%= link_to edit_topic_entry_comment_path(comment.entry.topic, comment.entry, comment), class: 'btn btn-success sm' do %>
 	<i class="glyphicon glyphicon-pencil"></i> Edit comment
 	<% end  %>
+	<% end  %>
+	<% if @user && (@user.id == comment.user_id || @user.id == @entry.user_id) %>
 	<%= link_to 'Delete Comment', ([comment.entry.topic, comment.entry, comment]), method: :delete %>
 	<% end %>
 <% end %>
 
+<% if @user && @user.id == @entry.user_id %>
 <div class="btn-group">
 <%= link_to @entry.topic, class: 'btn btn-primary' do %>
  <i class="glyphicon glyphicon-menu-left"></i> Back
@@ -26,6 +29,7 @@
 <% end  %>
 <%= link_to 'Delete', ([@entry.topic, @entry]), method: :delete %>
 </div>
+<% end  %>
 
 <% if @user %>
 <%= form_for [@entry.topic, @entry, @new_comment] do |f| %>

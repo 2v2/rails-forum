@@ -1,0 +1,11 @@
+<% if @user  %>
+<h6>You are logged in as: <%= @user.screen_name  %></h6>
+<form action="/session" method="POST">
+<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
+<input type="hidden" name = "_method" value = "DELETE">
+
+<button>Sign Out</button>
+</form>
+<% else %>
+<button><%= link_to 'Sign In', login_path %></button>
+<% end  %>
