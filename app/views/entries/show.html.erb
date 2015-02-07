@@ -7,7 +7,9 @@
 <% @entry.comments.each do |comment| %>
 	<p> by  <%=comment.user.screen_name %> </p>
 	<p> <%= comment.content %> </p>
-	<% binding.pry %>
+	<%= link_to edit_topic_entry_path(@entry.topic,@entry), class: 'btn btn-success' do %>
+	<i class="glyphicon glyphicon-pencil"></i> Edit
+<% end  %>
 <% end %>
 
 <div class="btn-group">
