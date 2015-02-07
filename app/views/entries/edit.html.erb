@@ -1,0 +1,17 @@
+
+<%= form_for ([@entry.topic, @entry]) do |f| %>
+
+	<%= f.hidden_field :topic_id, value: @entry.topic_id %>
+
+	<%= f.hidden_field :user_id, value: @entry.user_id %>
+
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+
+	<%= f.label :content %>
+	<%= f.text_area :content %>
+	
+	<%= f.submit 'Edit' %>
+<% end %>
+
+<% link_to 'cancel', ([@entry.topic, @entry]) %> 

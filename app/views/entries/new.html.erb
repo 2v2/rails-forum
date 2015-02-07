@@ -1,0 +1,39 @@
+
+
+<%= form_for ([@topic, @new_entry]) do |f| %>
+
+
+<div class="field form-group">
+
+<%= f.hidden_field :topic_id, value: @new_entry.topic_id %>
+<%= f.label :title, class: 'col-sm-2 control-label'  %>
+<div class="col-sm-8">
+<%= f.text_field :title, class: 'form-control'  %>
+</div>
+</div>
+<div class="field form-group">
+<%= f.label :user_id, class: 'col-sm-2 control-label' %>
+<div class="col-sm-8">
+<%= f.text_field :user_id, class: 'form-control' %>
+</div>
+</div>
+<div class="field form-group">
+<%= f.label :content, class: 'col-sm-2 control-label'  %>
+ <div class="col-sm-8">
+<%= f.text_area :content, class: 'form-control' %>
+<br /><br />
+<div class="actions form-group">
+<div class="col-sm-10">
+<%= f.submit 'Submit', class: 'btn btn-primary'  %>
+
+</div>
+</div>
+<% end %>
+
+
+<br>
+
+<%= link_to 'Cancel', @topic, class: 'btn btn-danger'  %>
+</div>
+</div>
+</div>  

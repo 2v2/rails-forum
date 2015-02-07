@@ -1,14 +1,18 @@
 
 <h1> <%= @topic.title %> </h1>
-<h4> <%= @topic.description %>
+<h4> <%= @topic.description %></h4>
 
 <% @topic.entries.each do |entry| %>
-	
-	<h3> <%= entry.title %> </h3>
 	<br>
+	<h3> <%= link_to entry.title, topic_entry_path(@topic, entry) %> </h3>
 	<p> by <%= entry.user.screen_name %> </p>
+	<p> <%= entry.content %>
+
 	<br>
 
 <% end %>
 
+<br>
+<br>
 <%= link_to 'back', topics_path %>
+<%= link_to 'Create', new_topic_entry_path(@topic) %>

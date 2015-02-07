@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   root "topics#index"
-  resources :topics
-  resources :entries
+  resources :topics do
+    resources :entries
+  end
   resources :users
   resources :comments
+
+
 
   # get '/login' => 'session#new'
   # post '/session' => 'session#create'
