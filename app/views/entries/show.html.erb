@@ -5,8 +5,9 @@
 	<p><%= @entry.content %> </p>
 
 <% @entry.comments.each do |comment| %>
-<p> by <%= comment.user %> </p>
-<p> <%= comment.content %> </p>
+	<p> by  <%=comment.user.screen_name %> </p>
+	<p> <%= comment.content %> </p>
+	<% binding.pry %>
 <% end %>
 
 <div class="btn-group">
@@ -21,7 +22,7 @@
 
 <%= form_for [@entry.topic, @entry, @new_comment] do |f| %>
 
-	<%= f.hidden_field :entry_id, value: @new_comment.entry_id %>
+	<%= f.hidden_field :entry_id, value: @entry.id %>
 
 	<%= f.label :user_id %>
 	<%= f.text_field :user_id %>
