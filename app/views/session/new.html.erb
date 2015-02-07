@@ -1,16 +1,19 @@
-
-
-
-<%= form_for @session do |f| %>
-
-	<%= f.label :user_screen_name %>
-	<%= f.text_area :user_screen_name %>
+<form action="/session" method="POST">
 	
-	<%= f.label :user_password %>
-	<%= f.text_area :user_password %>
-	
-	<% f.hidden_field :authenticity_token, value: form_authenticity_token() %> 
-	<%= f.submit 'Sign In' %>
+	<label for="screen_name">
+		Screen Name:
+	</label>
 
-<% end %>
+<input type="text" name="screen_name">
+<label for="password">
+		Password:
+	</label>
+
+<input type="password" name="password">
+<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
+<button>Sign In</button>
+
+</form>
+
+
 

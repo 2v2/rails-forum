@@ -1,4 +1,6 @@
 
+<h1>Welcome <%= @user.screen_name  %></h1>
+
 <% @topics.each do |topic| %>
 
 <%= link_to topic.title, topic_path(topic) %>

@@ -8,7 +8,7 @@
 	<%= f.label :content %>
 	<%= f.text_area :content, value: @comment.content %>
 	
-	<%= f.submit 'Edit' %>
+	<%= f.submit 'Edit comment' %>
 <% end %>
 
 <% link_to 'cancel', ([@comment.entry.topic, @comment.entry]) %> 

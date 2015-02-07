@@ -1,4 +1,6 @@
 
+
+
 <h1> <%= @entry.title %> </h1>
 <h4> <%= @entry.user.screen_name %></h4>
 	
@@ -7,8 +9,8 @@
 <% @entry.comments.each do |comment| %>
 	<p> by  <%=comment.user.screen_name %> </p>
 	<p> <%= comment.content %> </p>
-	<%= link_to edit_topic_entry_path(@entry.topic,@entry), class: 'btn btn-success' do %>
-	<i class="glyphicon glyphicon-pencil"></i> Edit
+	<%= link_to edit_topic_entry_comment_path(comment.entry.topic, comment.entry, comment), class: 'btn btn-success sm' do %>
+	<i class="glyphicon glyphicon-pencil"></i> Edit comment
 <% end  %>
 <% end %>
 

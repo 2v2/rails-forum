@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
   root "topics#index"
+
+  get '/login' => 'session#new'
+  get '/signup' => 'users#new'
+  post '/signup' => 'users#create'
+  post '/session' => 'session#create'
+  delete '/session' => 'session#destroy'
+  get '/secret' => 'secret#show'
+
+  
   resources :topics do
     resources :entries do
       resources :comments 
