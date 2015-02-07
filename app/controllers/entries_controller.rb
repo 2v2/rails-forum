@@ -2,7 +2,6 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find_by(id: params[:id])
-    @new_comment = @entry.comments.build
   end
 
   def new
