@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   root "topics#index"
   resources :topics do
-    resources :entries
+    resources :entries do
+      resources :comments 
+    end
   end
   resources :users
-  resources :comments
 
 
 
