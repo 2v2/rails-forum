@@ -1,0 +1,16 @@
+
+
+
+<%= form_for @session do |f| %>
+
+	<%= f.label :user_screen_name %>
+	<%= f.text_area :user_screen_name %>
+	
+	<%= f.label :user_password %>
+	<%= f.text_area :user_password %>
+	
+	<% f.hidden_field :authenticity_token, value: form_authenticity_token() %> 
+	<%= f.submit 'Sign In' %>
+
+<% end %>
+
