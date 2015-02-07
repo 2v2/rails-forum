@@ -5,18 +5,17 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comment = Comment.find_by(id: params[:id])
+    @comment = Comment.find_by(id: params[:id], :include => :user)
   end
 
   def new
     @entry = Entry.find_by(id: params[:entry_id])
-    @new_comment = @entry.comments.build
-    @user = @entry.user
+    @new_comment = Comment.new
+    binding.pry
   end
 
   def create
     @comment = Comment.create(comment_params)
-    binding.pry
     redirect_to :back
   end
 
