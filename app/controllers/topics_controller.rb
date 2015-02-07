@@ -1,6 +1,8 @@
 class TopicsController < ApplicationController
 
   def index
+    
+    @user = User.find_by(id: session[:user_id])
     @topics = Topic.all()
   end
 

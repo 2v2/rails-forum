@@ -1,6 +1,7 @@
 class EntriesController < ApplicationController
 
   def show
+    @user = User.find_by(id: session[:user_id])
     @entry = Entry.find_by(id: params[:id])
     @new_comment = Comment.new
   end

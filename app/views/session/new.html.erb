@@ -1,0 +1,19 @@
+<form action="/session" method="POST">
+	
+	<label for="screen_name">
+		Screen Name:
+	</label>
+
+<input type="text" name="screen_name">
+<label for="password">
+		Password:
+	</label>
+
+<input type="password" name="password">
+<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
+<button>Sign In</button>
+
+</form>
+
+
+

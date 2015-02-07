@@ -1,0 +1,14 @@
+
+<%= form_for [@comment.entry.topic, @comment.entry, @comment] do |f| %>
+
+	<%= f.hidden_field :entry_id, value: @comment.entry_id %>
+
+	<%= f.hidden_field :user_id, value: @comment.user_id %>
+
+	<%= f.label :content %>
+	<%= f.text_area :content, value: @comment.content %>
+	
+	<%= f.submit 'Edit comment' %>
+<% end %>
+
+<% link_to 'cancel', ([@comment.entry.topic, @comment.entry]) %> 

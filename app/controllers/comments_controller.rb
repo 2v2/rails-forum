@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by(id: params[:id])
     @comment.update_attributes(comment_params)
 
-    redirect_to @comment
+    redirect_to [@comment.entry.topic, @comment.entry]
   end
 
   def destroy

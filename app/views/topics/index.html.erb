@@ -1,8 +1,18 @@
+<% if @user  %>
+<h4>Welcome <%= @user.screen_name  %></h4>
+<form action="/session" method="POST">
+<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
+<input type="hidden" name = "_method" value = "DELETE">
+
+<button>Sign Out</button>
+</form>
+<% end  %>
+
 
 <% @topics.each do |topic| %>
 
-<%= link_to topic.title, topic_path(topic) %>
-<%= topic.description %>
+<h1><%= link_to topic.title, topic_path(topic) %></h1>
+<h3><%= topic.description %></h3>
 
 <% end %>
 

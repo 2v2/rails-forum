@@ -1,4 +1,6 @@
 
+
+
 <h1> <%= @entry.title %> </h1>
 <h4> <%= @entry.user.screen_name %></h4>
 	
@@ -7,6 +9,9 @@
 <% @entry.comments.each do |comment| %>
 	<p> by  <%=comment.user.screen_name %> </p>
 	<p> <%= comment.content %> </p>
+	<%= link_to edit_topic_entry_comment_path(comment.entry.topic, comment.entry, comment), class: 'btn btn-success sm' do %>
+	<i class="glyphicon glyphicon-pencil"></i> Edit comment
+<% end  %>
 <% end %>
 
 <div class="btn-group">
@@ -19,14 +24,15 @@
 <%= link_to 'Delete', ([@entry.topic, @entry]), method: :delete %>
 </div>
 
+<% if @user %>
 <%= form_for [@entry.topic, @entry, @new_comment] do |f| %>
 
 	<%= f.hidden_field :entry_id, value: @entry.id %>
 
-	<%= f.label :user_id %>
-	<%= f.text_field :user_id %>
+	<%= f.hidden_field :user_id, value: @user.id%>
 	<%= f.label :content %>
 	<%= f.text_area :content %>
 
 	<%= f.submit 'Submit' %>
+<% end %>
 <% end %>
