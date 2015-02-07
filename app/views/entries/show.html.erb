@@ -9,7 +9,7 @@
 <% @entry.comments.each do |comment| %>
 	<p> by  <%=comment.user.screen_name %> </p>
 	<p> <%= comment.content %> </p>
-	<% if @user && @user.id == comment.user_id %>
+	<% if @user && (@user.id == comment.user_id || @user.id == @entry.user_id) %>
 	<%= link_to edit_topic_entry_comment_path(comment.entry.topic, comment.entry, comment), class: 'btn btn-success sm' do %>
 	<i class="glyphicon glyphicon-pencil"></i> Edit comment
 	<% end  %>
