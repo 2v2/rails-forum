@@ -11,7 +11,6 @@ class CommentsController < ApplicationController
   def new
     @entry = Entry.find_by(id: params[:entry_id])
     @new_comment = Comment.new
-    binding.pry
   end
 
   def create
