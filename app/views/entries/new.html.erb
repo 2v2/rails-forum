@@ -1,4 +1,11 @@
-
+<%= render 'shared/loginout' %>
+<div class="col-xs-8">
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to 'Topics', topics_path %></li>
+  <li class="active"><%= link_to 'New post', new_topic_entry_path %></li>
+</ul>
+<br>
+<br>
 
 <%= form_for ([@topic, @new_entry]), html: {class: 'form-horizontal'} do |f| %>
 
