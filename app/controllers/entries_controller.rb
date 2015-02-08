@@ -8,7 +8,8 @@ class EntriesController < ApplicationController
   end
 
   def new
-    if session[:user_id] 
+    @user = User.find_by(id: session[:user_id])
+    if session[:user_id]
       @topic = Topic.find_by(id: params[:topic_id])
       @new_entry = @topic.entries.build
     else
@@ -27,7 +28,7 @@ class EntriesController < ApplicationController
     else
       redirect_to session[:page_id]
     end
-    
+
   end
 
   def update
@@ -35,18 +36,23 @@ class EntriesController < ApplicationController
     @entry.update_attributes(entry_params)
 
     redirect_to [@entry.topic, @entry]
-    end
+  end
 
   def destroy
     @entry = Entry.find_by(id: params[:id])
+    @comments = Comment.where(entry_id: @entry.id)
+    @comments.each do |comment|
+      Comment.destroy(comment)
+    end
     Entry.destroy(params[:id])
+
 
     redirect_to topic_path(@entry.topic_id)
   end
 
   private
   def entry_params
-    params.require(:entry).permit(:title, :user_id, :content, :topic_id)
+    params.require(:entry).permit(:title, :user_id, :content, :topic_id, :comment_num)
   end
 
 end

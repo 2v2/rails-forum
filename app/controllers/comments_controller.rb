@@ -1,13 +1,5 @@
 class CommentsController < ApplicationController
 
-  def index
-    @comments = Comment.all
-  end
-
-  def show
-    @comment = Comment.find_by(id: params[:id], :include => :user)
-  end
-
   def new
     @entry = Entry.find_by(id: params[:entry_id])
     @new_comment = Comment.new
@@ -15,11 +7,18 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
+    @entry = Entry.find_by(id: @comment.entry_id)
+    new_entry = @entry[:comment_num]+1
+    @entry.update_attributes({comment_num: new_entry})
     redirect_to :back
   end
 
   def edit
     @comment = Comment.find_by(id: params[:id])
+    if session[:user_id] == @comment.user_id
+    else
+      redirect_to session[:page_id]
+    end
   end
 
   def update
@@ -31,7 +30,12 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find_by(id: params[:id])
+    @entry = Entry.find_by(id: @comment.entry_id)
+    new_entry = @entry[:comment_num]-1
+    @entry.update_attributes({comment_num: new_entry})
     Comment.destroy(params[:id])
+
+
 
     redirect_to [@comment.entry.topic, @comment.entry]
   end
