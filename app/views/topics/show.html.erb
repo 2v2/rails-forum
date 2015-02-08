@@ -1,5 +1,15 @@
 <%= render 'shared/loginout' %>
-<h1> <%= @topic.title %> </h1>
+<br>
+<div class="col-xs-8">
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to 'Topics', topics_path %></li>
+  <li class="active"><%= link_to @topic.title, @topic %></li>
+  <li><%= link_to 'New post', new_topic_entry_path(@topic) %></li>
+</ul>
+<br>
+
+
+<h2> <%= @topic.title %> </h2>
 <h4> <%= @topic.description %></h4>
 
 <% entries = @topic.entries.order(:updated_at).reverse %>
@@ -15,5 +25,4 @@
 
 <br>
 <br>
-<%= link_to 'back', topics_path %>
-<%= link_to 'Create', new_topic_entry_path(@topic) %>
+

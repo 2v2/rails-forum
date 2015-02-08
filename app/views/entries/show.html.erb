@@ -1,6 +1,15 @@
 
 <%= render 'shared/loginout' %>
 
+<div class="col-sm-8">
+<ul class="nav nav-tabs" role="tablist">
+  <li><%= link_to 'Topics', topics_path %></li>
+  <li><%= link_to 'Entries', @entry.topic %></li>
+  <li class="active"><%= link_to 'New post', new_topic_entry_path %></li>
+</ul>
+<br>
+<br>
+
 <h1> <%= @entry.title %> </h1>
 <h4> <%= @entry.user.screen_name %></h4>
 	
