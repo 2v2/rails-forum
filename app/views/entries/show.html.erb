@@ -5,7 +5,8 @@
 <ul class="nav nav-tabs" role="tablist">
   <li><%= link_to 'Topics', topics_path %></li>
   <li><%= link_to 'Entries', @entry.topic %></li>
-  <li class="active"><%= link_to 'New post', new_topic_entry_path %></li>
+  <li class="active"><%= link_to @entry.title, @self %></li>
+  <li><%= link_to 'New post', new_topic_entry_path %></li>
 </ul>
 <br>
 <br>
