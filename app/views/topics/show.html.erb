@@ -2,7 +2,8 @@
 <h1> <%= @topic.title %> </h1>
 <h4> <%= @topic.description %></h4>
 
-<% @topic.entries.each do |entry| %>
+<% entries = @topic.entries.order(:updated_at).reverse %>
+<% entries.each do |entry| %>
 	<br>
 	<h3> <%= link_to entry.title, topic_entry_path(@topic, entry) %> </h3>
 	<p> by <%= entry.user.screen_name %> </p>
