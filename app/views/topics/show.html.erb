@@ -12,8 +12,27 @@
 <h2> <%= @topic.title %> </h2>
 <h4> <%= @topic.description %></h4>
 
-<% @entries.each do |entry| %>
+<nav>
+  <nav>
+  <ul class="pagination">
+    <li>
+      <a href="?page=<%= @page -1 %>" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <% (1.. @pages).each do |page| %>
+	<li><a href="?page=<%= page %>"><%= page %></a></li>
+	<% end  %>
+	<li>
+      <a href="?page=<%= @page +1 %>" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+    <% @entries.each do |entry| %>
 	<% if entry %>
+	
 	<br>
 	<h3> <%= link_to entry.title, topic_entry_path(@topic, entry) %> </h3>
 	<p> by: <%= entry.user.screen_name %> </p>
@@ -32,4 +51,10 @@
 
 <br>
 <br>
+
+    
+
+    
+
+
 
