@@ -8,15 +8,29 @@
 	<div class="controls">
 	<%= f.text_field :screen_name %>
 	</div>
-	
 	</div>
+
 	<div class="control-group">
 	<%= f.label :password, class: 'control-label' %>
 	<div class="controls">
 	<%= f.text_field :password %>
 	</div>
-	
 	</div>
+	
+  	<div class="control-group">
+  	<%= f.label :email, class: 'control-label' %>
+  	<div class="controls">
+  	<%= email_field(:user, :email) %>
+  	</div>
+  	</div>
+
+   	<div class="control-group">
+   	<%= f.label :upload_avatar, class: 'control-label' %>
+   	<div class="controls">
+   	<%= f.file_field :avatar %>
+   	</div>
+	</div>
+	
 	<% f.hidden_field :authenticity_token, value: form_authenticity_token() %> 
 	
 
