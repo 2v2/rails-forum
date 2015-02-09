@@ -12,8 +12,8 @@
 <h2> <%= @topic.title %> </h2>
 <h4> <%= @topic.description %></h4>
 
-<% entries = @topic.entries.order(:updated_at).reverse %>
-<% entries.each do |entry| %>
+<% @entries.each do |entry| %>
+	<% if entry %>
 	<br>
 	<h3> <%= link_to entry.title, topic_entry_path(@topic, entry) %> </h3>
 	<p> by: <%= entry.user.screen_name %> </p>
@@ -26,6 +26,7 @@
 	<div><p> <%= entry.content %></div>
 
 	<br>
+	<% end %>
 
 <% end %>
 
