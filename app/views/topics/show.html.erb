@@ -30,11 +30,15 @@
     </li>
   </ul>
 </nav>
+
+
+<a id="popoverData" class="btn" href="#" data-content="Popover with data-trigger" rel="popover" data-placement="bottom" data-original-title="Title" data-trigger="hover">Popover with data-trigger</a>
     <% @entries.each do |entry| %>
 	<% if entry %>
 	
 	<br>
-	<h3> <%= link_to entry.title, topic_entry_path(@topic, entry) %> </h3>
+	<h3> </h3>
+	<a id="popoverData" type = "btn" class="btn" href="#" data-content="test" rel="popover" data-placement="bottom" data-original-title="Title" data-trigger="hover"><%= link_to entry.title, topic_entry_path(@topic, entry) %> </a>
 	<p> by: <%= entry.user.screen_name %> </p>
 	<p>comments: <%= entry.comment_num  %></p>
 	<time>Created at: <%= entry.created_at.localtime.strftime("%b %d, %Y - %l:%M %P") %></time><br>
@@ -42,7 +46,8 @@
 	<br>
 	<br>
 	
-	<div><p> <%= entry.content %></div>
+	<div>
+	<p><%= entry.content %> </div>
 
 	<br>
 	<% end %>
