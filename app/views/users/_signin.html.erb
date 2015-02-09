@@ -1,0 +1,23 @@
+<div class="modal hide fade" id="my-modal" title="My modal">
+  <div class="modal-header">
+    <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
+    <h3 id="myModalLabel">New Post</h3>
+  </div>
+  <div class="modal-body new-login">
+  <%= form_for @user do |f| %>
+
+	<%= f.label :screen_name %>
+	<%= f.text_field :screen_name %>
+	
+	<%= f.label :password %>
+	<%= f.text_field :password %>
+	
+	<% f.hidden_field :authenticity_token, value: form_authenticity_token() %> 
+	<%= f.submit 'Sign Up' %>
+
+<% end %>
+  </div>
+  <div class="modal-footer">
+    <button aria-hidden="true" class="btn" data-dismiss="modal">Close</button>
+  </div>
+</div>
