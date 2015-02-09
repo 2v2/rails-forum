@@ -1,0 +1,30 @@
+<% if @user == nil  %>
+<!-- Button trigger modal -->
+  <%= button_to 'Sign Up', signup_path, class: 'btn btn-primary', data: { toggle: "modal", target: "#signUp"},  method: :get %>
+
+
+<div class="modal fade" id="signUp">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Modal title</h4>
+        </div>
+        <div class="modal-body">
+
+        <form action="/signup" method="POST">
+<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
+<input type="text" label = "screen_name" name = "screen_name">
+<input type="text" label = "password" name = "password">
+
+<button>Sign Up</button>
+</form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+</div>
+</div>
+<% end  %>
