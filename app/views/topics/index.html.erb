@@ -1,5 +1,9 @@
 <%= render 'shared/loginout' %>
-<%= render 'shared/signupbutton' %>
+<% if @user == nil  %>
+
+<%=  button_to 'Sign up', signup_path, class: 'btn btn-success', method: :get %>	
+
+<% end  %>
 
 
 

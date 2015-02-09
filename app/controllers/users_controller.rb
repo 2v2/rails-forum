@@ -5,9 +5,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    if params[:password]
+    
+    if params[:password] == params[:confirm_password]
       @user = User.create(params_user)
       redirect_to topics_path
+    binding.pry
     else
       redirect_to '/signup'
     end
