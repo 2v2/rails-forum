@@ -5,7 +5,7 @@ class TopicsController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     @topics = Topic.all()
   end
-
+  
   def show
     @page = params["page"] || 1
     @page = @page.to_i
