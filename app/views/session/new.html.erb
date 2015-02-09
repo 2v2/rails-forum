@@ -1,17 +1,28 @@
-<form action="/session" method="POST">
-	
-	<label for="screen_name">
-		Screen Name:
+<form action="/session" class="form-horizontal" method="POST">
+	<fieldset>
+  	<legend>Sign in for Specific Assembly</legend>
+	<div class="control-group">
+	<label for="screen_name" class="controls">
+		Screen Name
 	</label>
 
-<input type="text" name="screen_name">
-<label for="password">
-		Password:
-	</label>
+	</div>
+	<div class="controls">
+	<input type="text" name="screen_name">
 
+	</div>
+	<div class="control-group">
+<label for="password" class="controls">
+		Password
+</label>
+</div>
+<div class="controls">
 <input type="password" name="password">
+
+</div>
 <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
-<button>Sign In</button>
+<br>
+<button class= "btn btn-default btn-sm">Sign In</button>
 
 </form>
 

@@ -16,7 +16,8 @@
 <% entries.each do |entry| %>
 	<br>
 	<h3> <%= link_to entry.title, topic_entry_path(@topic, entry) %> </h3>
-	<p> by <%= entry.user.screen_name %> </p>
+	<p> by: <%= entry.user.screen_name %> </p>
+	<p>comments: <%= entry.comment_num  %></p>
 	<time>Created at: <%= entry.created_at.localtime.strftime("%b %d, %Y - %l:%M %P") %></time><br>
 	<time>Last updated at: <%= entry.updated_at.localtime.strftime("%b %d, %Y - %l:%M %P") %></time>
 	<br>

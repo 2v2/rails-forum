@@ -5,5 +5,11 @@
       <a class="navbar-brand" href="/">Specific Assembly</a>
     </div>
     
+    <div class="navbar-	">
+    	<% form_for '/session', method: :delete do |f| %>
+<% f.hidden_field :authenticity_token, value: form_authenticity_token() %>
+<%= link_to 'Sign Out', f.submit   %>
+<% end  %>
+    </div>
 
 </nav>
