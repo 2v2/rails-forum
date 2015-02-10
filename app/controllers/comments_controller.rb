@@ -35,8 +35,6 @@ class CommentsController < ApplicationController
     @entry.update_attributes({comment_num: new_entry})
     Comment.destroy(params[:id])
 
-
-
     redirect_to [@comment.entry.topic, @comment.entry]
   end
 

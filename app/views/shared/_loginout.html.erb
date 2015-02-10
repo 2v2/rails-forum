@@ -4,9 +4,9 @@
 <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
 <input type="hidden" name = "_method" value = "DELETE">
 
-<button class='btn btn-danger btn-sm'>Sign Out</button>
+<button class='btn btn-danger btn-xs'>Sign Out</button>
 </form>
 
 <% else %>
-<%= button_to 'Sign In', login_path, class: 'btn btn-primary btn-sm', method: :get %>
+<%= button_to 'Sign In', login_path, class: 'btn btn-primary btn-xs', method: :get %>
 <% end  %>
