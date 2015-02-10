@@ -14,6 +14,9 @@ class TopicsController < ApplicationController
     count = 1
     all_entries = @topic.entries
     pages = (all_entries.length/10) + 1
+    if pages == 0
+      pages = 1
+    end
     if page < 1
       page = 1
     end
