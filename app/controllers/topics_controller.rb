@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     @topic = Topic.find_by(id: params[:id])
     count = 1
-    all_entries = @topic.entries
+    all_entries = @topic.entries.order(:updated_at).reverse
     pages = (all_entries.length/10) + 1
     if pages == 0
       pages = 1
@@ -33,7 +33,6 @@ class TopicsController < ApplicationController
     @pages = pages
     @page = page
     @entries = entries
-
     session[:page_id] = topic_path(@topic) + "?page=" + @page.to_s
 
   end
