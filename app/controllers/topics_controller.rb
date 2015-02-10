@@ -13,12 +13,12 @@ class TopicsController < ApplicationController
     @topic = Topic.find_by(id: params[:id])
     count = 1
     all_entries = @topic.entries
-    @pages = (all_entries.length/10) + 1
+    pages = (all_entries.length/10) + 1
     if page < 1
       page = 1
     end
-    if @pages < page
-      page = @pages
+    if pages < page
+      page = pages
     end
     entries = []
     all_entries.in_groups_of(10) do |group|
@@ -27,6 +27,7 @@ class TopicsController < ApplicationController
       end
       count+=1
     end
+    @pages = pages
     @page = page
     @entries = entries
 
