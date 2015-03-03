@@ -1,12 +1,12 @@
 class RemoveScreenNameAddFullName < ActiveRecord::Migration
   def change
-  	remove_column :user, :screen_name
-  	add_column :user, :first_name, :text
-  	add_column :user, :last_name, :text
-  	add_column :user, :course, :text
-  	add_column :user, :linked_in, :text
-  	add_column :user, :twitter, :text
-  	add_column :user, :facebook, :text
-  	add_column :user, :github, :text
+  	remove_column :users, :screen_name
+  	add_column :users, :first_name, :text
+  	add_column :users, :last_name, :text
+  	add_column :users, :course, :text
+  	add_column :users, :linked_in, :text
+  	add_column :users, :twitter, :text
+  	add_column :users, :facebook, :text
+  	add_column :users, :github, :text
   end
 end
