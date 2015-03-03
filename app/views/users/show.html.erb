@@ -17,17 +17,17 @@
 	<p><%= @user.course %></p>
 	<!-- social media links -->
 	<% if @user.linked_in %>
-	<p><%= @user.linked_in  %></p>
+	<a href='@user.linked_in'><%= @user.linked_in  %></a>
 	<% end  %>
 	<% if @user.twitter %>
-	<p><%= @user.twitter  %></p>
+	<a href='@user.twitter'><%= @user.twitter  %></a>
 	<% end  %>
 	<% if @user.facebook %>
-	<p><%= @user.facebook  %></p>
+	<a href='@user.facebook'><%= @user.facebook  %></a>
 	<% end  %>
 	<!-- projects/git -->
 	<% if @user.github %>
-	<p><%= @user.github  %></p>
+	<a href='@user.github'><%= @user.github  %></a>
 	<% end  %>
 
 </body>
