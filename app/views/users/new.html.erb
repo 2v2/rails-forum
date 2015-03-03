@@ -9,7 +9,7 @@
 	<%= f.collection_select(:course_id, Course.all, :id, :title, :include_blank => "Which course did you take?") %>
 	</div>
 	</div>
-	
+
 	<div class="control-group">
 	<%= f.label :first_name, class: 'control-label' %>
 	
@@ -39,14 +39,6 @@
   	<%= email_field(:user, :email) %>
   	</div>
   	</div>
-
-  	<div class="control-group">
-	<%= f.label :course, class: 'control-label' %>
-	
-	<div class="controls">
-	<%= f.text_field :course %>
-	</div>
-	</div>
 
 	<div class="control-group">
 	<%= f.label :linked_in, class: 'control-label' %>

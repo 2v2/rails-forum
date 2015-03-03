@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+c1 = Course.create(title: 'WDI')
+c2 = Course.create(title: 'UXDI')
+c3 = Course.create(title: 'PMI')
+
 topic1 = Topic.create(
 	title: "Projects",
 	description: "Discussion board for project ideas and recruitment")
