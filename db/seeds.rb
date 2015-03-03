@@ -11,9 +11,13 @@ topic1 = Topic.create(
 	description: "Discussion board for project ideas and recruitment")
 
 topic2 = Topic.create(
-	title: "Resources",
-	description: "Various links and handy resources")
+	title: "Jobs",
+	description: "Search Jobs")
 
 topic3 = Topic.create(
-	title: "Princess Peach",
-	description: "Web Development Immersive - fall 2014")
+	title: "Meetups",
+	description: "Find a Meetup")
+
+topic4 = Topic.create(
+	title: 'Founder Dating',
+	description: 'Meet like-minded founders')
