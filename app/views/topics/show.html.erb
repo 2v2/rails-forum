@@ -37,7 +37,7 @@
 	<h3>
 	<a href="<%= topic_entry_path(@topic, entry) %>" data-tooltip="<%= entry.content[0..100] %>..."><%=entry.title%></a>
 	</h3>
-	<p class = "text-muted"> by: <%= entry.user.screen_name %> </p>
+	<p class = "text-muted"> by: <%= entry.user.first_name %> </p>
 	<p class = "text-muted">comments: <%= entry.comment_num  %></p>
 	<time class = "text-muted">Created at: <%= entry.created_at.localtime.strftime("%b %d, %Y - %l:%M %P") %></time><br>
 	<time class = "text-muted">Last updated at: <%= entry.updated_at.localtime.strftime("%b %d, %Y - %l:%M %P") %></time>
