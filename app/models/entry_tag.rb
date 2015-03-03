@@ -1,4 +1,4 @@
 class EntryTag < ActiveRecord::Base
-	belongs_to :entries
-	belongs_to :courses
+  belongs_to :entry
+  belongs_to :course
 end

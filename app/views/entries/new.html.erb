@@ -14,12 +14,12 @@
 
 <div class="field form-group">
 
-<%=  f.collection_check_boxes :course_id, Course.all, :id, :title }
+
 
 <%= f.hidden_field :topic_id, value: @new_entry.topic_id %>
 <%= f.hidden_field :comment_num, value: 0 %>
 
-<%= f.check_box   %>
+<%=  f.collection_check_boxes :entry_tag_id, Course.all, :id, :title %>
 
 
 <%= f.label :title, class: 'col-sm-2 control-label'  %>
