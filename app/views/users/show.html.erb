@@ -7,19 +7,28 @@
 <body>
 	
 	<!-- user name -->
-	<h4> <%= @user.first_name %> <%= @user.last_name %>  </h4>
+	<h1> <%= @user.first_name %> <%= @user.last_name %>  </h1>
 	<!-- photos -->
-	<%= image_tag @user.avatar.url(:thumb) %> 
-
+	<%= image_tag @user.avatar.url(:medium) %> 
 	<!-- headline -->
+
 	
 	<!-- course taken -->
-	
+	<p><%= @user.course %></p>
 	<!-- social media links -->
-
+	<% if @user.linked_in %>
+	<p><%= @user.linked_in  %></p>
+	<% end  %>
+	<% if @user.twitter %>
+	<p><%= @user.twitter  %></p>
+	<% end  %>
+	<% if @user.facebook %>
+	<p><%= @user.facebook  %></p>
+	<% end  %>
 	<!-- projects/git -->
-
-	
+	<% if @user.github %>
+	<p><%= @user.github  %></p>
+	<% end  %>
 
 </body>
 </html>
