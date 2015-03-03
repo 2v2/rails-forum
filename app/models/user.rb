@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :entries
   has_many :comments
+  belongs_to :course
 end
