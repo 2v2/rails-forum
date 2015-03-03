@@ -7,7 +7,7 @@
 <body>
 	
 	<!-- user name -->
-	<h1> <%= @user.first_name %> <%= @user.last_name %> | <%= @user.course %> </h1>
+	<h1> <%= @user.first_name %> <%= @user.last_name %> | <%= @user.course.title %> </h1>
 	
 	<!-- photos -->
 	<%= image_tag @user.avatar.url(:medium) %> 
