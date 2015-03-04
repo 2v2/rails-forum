@@ -3,12 +3,9 @@ class EntriesController < ApplicationController
   def show
     @user = User.find_by(id: session[:user_id])
     @entry = Entry.find(params[:id])
-
-
-        render :show
-        redirect_to session[:page_id]
-
     @new_comment = Comment.new
+    render :show
+    # redirect_to session[:page_id]
   end
 
   def new
