@@ -13,6 +13,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find_by(id: params[:id])
     count = 1
     all_entries = @topic.entries.order(:updated_at).reverse
+    # filter here
     pages = (all_entries.length/10) + 1
     if pages == 0
       pages = 1
