@@ -4,7 +4,7 @@ class EntriesController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     @entry = Entry.includes(:viewers, :comments).find(params[:id])
     session[:page_id] = topic_entry_path(@entry.topic, @entry)
-      if @board.is_viewer?(@user)
+      if @entry.is_viewer?(@user)
         render :show
       else
         redirect_to session[:page_id]
@@ -26,6 +26,7 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.create(entry_params)
+    binding.pry
     redirect_to [@entry.topic, @entry]
   end
 

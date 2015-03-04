@@ -7,7 +7,7 @@ class Entry < ActiveRecord::Base
   has_many :viewers, through: :entry_tags, source: :course
 
   def is_viewer?(user)
-    true if user.course_id == self.course_id
-    entry_tags.where(course_id: user.course_id).exists?
+    true if user.course_id == self.entry_tags
+    entry_tags.where(entry_tags: user.course_id).exists?
   end
 end
