@@ -2,7 +2,13 @@ class EntriesController < ApplicationController
 
   def show
     @user = User.find_by(id: session[:user_id])
-    @entry = Entry.find_by(id: params[:id])
+    @entry = Entry.includes(:viewers, :comments).find(params[:id])
+
+      if @board.is_tagged?(@user)
+        render :show
+      else
+        redirect_to session[:page_id]
+      end
     session[:page_id] = topic_entry_path(@entry.topic, @entry)
     @new_comment = Comment.new
   end
