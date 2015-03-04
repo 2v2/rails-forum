@@ -4,6 +4,7 @@ class EntriesController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     @entry = Entry.includes(:viewers, :comments).find(params[:id])
     session[:page_id] = topic_entry_path(@entry.topic, @entry)
+    binding.pry
       if @entry.is_viewer?(@user)
         render :show
       else
