@@ -4,7 +4,7 @@ class EntriesController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     @entry = Entry.includes(:viewers, :comments).find(params[:id])
     session[:page_id] = topic_entry_path(@entry.topic, @entry)
-      if @board.is_tagged?(@user)
+      if @board.is_viewer?(@user)
         render :show
       else
         redirect_to session[:page_id]
@@ -14,6 +14,7 @@ class EntriesController < ApplicationController
   end
 
   def new
+    @courses = Course.all()
     @user = User.find_by(id: session[:user_id])
     if session[:user_id]
       @topic = Topic.find_by(id: params[:topic_id])

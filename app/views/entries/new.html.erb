@@ -19,8 +19,11 @@
 <%= f.hidden_field :topic_id, value: @new_entry.topic_id %>
 <%= f.hidden_field :comment_num, value: 0 %>
 
-<%=  f.collection_check_boxes :entry_tag_id, Course.all, :id, :title %>
-
+<%= fields_for :tag do |tag_field| %>
+  <% @courses.each do |course| %>
+  <%= tag_field.check_box course.id, course.title %>
+<% end %>
+<% end %>
 
 <%= f.label :title, class: 'col-sm-2 control-label'  %>
 
