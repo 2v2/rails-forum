@@ -3,10 +3,26 @@
 	<fieldset>
   	<legend>Register for Specific Assembly</legend>
 	<div class="control-group">
-	<%= f.label :screen_name, class: 'control-label' %>
+	<%= f.label :course, class: 'control-label' %>
 	
 	<div class="controls">
-	<%= f.text_field :screen_name %>
+	<%= f.collection_select(:course_id, Course.all, :id, :title, :include_blank => "Which course did you take?") %>
+	</div>
+	</div>
+
+	<div class="control-group">
+	<%= f.label :first_name, class: 'control-label' %>
+	
+	<div class="controls">
+	<%= f.text_field :first_name %>
+	</div>
+	</div>
+
+	<div class="control-group">
+	<%= f.label :last_name, class: 'control-label' %>
+	
+	<div class="controls">
+	<%= f.text_field :last_name %>
 	</div>
 	</div>
 
@@ -23,6 +39,38 @@
   	<%= email_field(:user, :email) %>
   	</div>
   	</div>
+
+	<div class="control-group">
+	<%= f.label :linked_in, class: 'control-label' %>
+	
+	<div class="controls">
+	<%= f.text_field :linked_in %>
+	</div>
+	</div>
+
+	<div class="control-group">
+	<%= f.label :github, class: 'control-label' %>
+	
+	<div class="controls">
+	<%= f.text_field :github %>
+	</div>
+	</div>
+
+	<div class="control-group">
+	<%= f.label :facebook, class: 'control-label' %>
+	
+	<div class="controls">
+	<%= f.text_field :facebook %>
+	</div>
+	</div>
+
+	<div class="control-group">
+	<%= f.label :twitter, class: 'control-label' %>
+	
+	<div class="controls">
+	<%= f.text_field :twitter %>
+	</div>
+	</div>
 
    	<div class="control-group">
    	<%= f.label :upload_avatar, class: 'control-label' %>

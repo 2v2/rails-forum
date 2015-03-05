@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Profile page</title>
+</head>
+<body>
+	
+	<!-- user name -->
+	<h1> <%= @user.first_name %> <%= @user.last_name %> | <%= @user.course.title %> </h1>
+	
+	<!-- photos -->
+	<%= image_tag @user.avatar.url(:medium) %> 
+	<!-- headline -->
+
+	
+	<!-- course taken -->
+	
+	<!-- social media links -->
+	<% if @user.linked_in %>
+	<br>
+	<a href='<%= @user.linked_in %>'>Linked In</a>
+	<br>
+	<% end  %>
+	<% if @user.twitter %>
+	<a href='<%= @user.twitter %>'>Twitter</a>
+	<br>
+	<% end  %>
+	<% if @user.facebook %>
+	<a href='<%= @user.facebook %>'>Facebook</a>
+	<br>
+	<% end  %>
+	<!-- projects/git -->
+	<% if @user.github %>
+	<a href='<%= @user.github %>'>GitHub</a>
+	<br>
+	<% end  %>
+
+</body>
+</html>

@@ -2,12 +2,14 @@ class EntriesController < ApplicationController
 
   def show
     @user = User.find_by(id: session[:user_id])
-    @entry = Entry.find_by(id: params[:id])
-    session[:page_id] = topic_entry_path(@entry.topic, @entry)
+    @entry = Entry.find(params[:id])
     @new_comment = Comment.new
+    render :show
+    # redirect_to session[:page_id]
   end
 
   def new
+    @courses = Course.all()
     @user = User.find_by(id: session[:user_id])
     if session[:user_id]
       @topic = Topic.find_by(id: params[:topic_id])
@@ -19,6 +21,7 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.create(entry_params)
+    binding.pry
     redirect_to [@entry.topic, @entry]
   end
 
@@ -52,7 +55,7 @@ class EntriesController < ApplicationController
 
   private
   def entry_params
-    params.require(:entry).permit(:title, :user_id, :content, :topic_id, :comment_num)
+    params.require(:entry).permit(:title, :user_id, :content, :topic_id, :comment_num, :course_id, :tags => [])
   end
 
 end
