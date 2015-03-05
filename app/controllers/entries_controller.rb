@@ -3,12 +3,10 @@ class EntriesController < ApplicationController
   def show
     @user = User.find_by(id: session[:user_id])
     @entry = Entry.find(params[:id])
-
-
-        render :show
-        redirect_to session[:page_id]
-
+    binding.pry
     @new_comment = Comment.new
+        render :show
+        # redirect_to session[:page_id]
   end
 
   def new
@@ -24,7 +22,7 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.create(entry_params)
-    binding.pry
+
     redirect_to [@entry.topic, @entry]
   end
 

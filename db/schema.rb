@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150304191624) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.integer  "entry_id"
     t.text     "content"
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 20150304191624) do
     t.integer  "topic_id"
     t.integer  "user_id"
     t.integer  "comment_num"
-    t.string   "tags"
+    t.string   "tags",                     array: true
   end
 
   create_table "entry_tags", force: :cascade do |t|
@@ -46,7 +49,7 @@ ActiveRecord::Schema.define(version: 20150304191624) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "entry_tags", ["entry_id", "course_id"], name: "index_entry_tags_on_entry_id_and_course_id", unique: true
+  add_index "entry_tags", ["entry_id", "course_id"], name: "index_entry_tags_on_entry_id_and_course_id", unique: true, using: :btree
 
   create_table "topics", force: :cascade do |t|
     t.text     "title"
